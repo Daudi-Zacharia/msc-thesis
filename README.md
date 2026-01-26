@@ -1,14 +1,21 @@
 # Thesis
 
 ## Project Overview
-This folder contains my thesis work
+This folder contains my thesis work, with classification and segmentation sub-folders.
 
-## 📂 Notebooks & Experiments
+## 📂 Classification
 
 | Notebook Name | Description | Link |
 | :--- | :--- | :--- |
 | **Classification Custom CNNs** | Training custom CNN models for classification. | [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/Daudi232/DS_3/blob/main/Thesis/Classification/Classification_Custom_CNNs.ipynb) |
 | **Classification Segmented Lungs Custom CNN** | Training custom CNN models for classification on segmented lung images | [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/Daudi232/DS_3/blob/main/Thesis/Classification/Classification_Segmented_Lungs_Custom_CNN.ipynb) |
+
+## 📂 Segmentation
+
+| Notebook Name | Description | Link |
+| :--- | :--- | :--- |
+
+
 
 ---
 *Note: If a notebook fails to render on GitHub, please use the "Open in Colab" badges above to view and run the code directly.*
