@@ -3,7 +3,7 @@
 ## Overview
 This folder contains my thesis work, with classification and segmentation sub-folders.
 
-You can view the full log of my experiment runs, hyperparameters, and different metric scores in the google sheet below:
+You can view the full log of my experiment runs, hyperparameters, and different metric scores below:
 
 [![Experiment Results](https://img.shields.io/badge/Experiment_Results-Google_Sheets-34A853?logo=google-sheets&logoColor=white)](https://docs.google.com/spreadsheets/d/1yfOcmW0lD8mNYdcBe97ekJ9IfUImScAMzi2XEnvoDVU/edit?gid=405324248#gid=405324248)
 
