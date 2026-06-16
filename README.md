@@ -3,9 +3,13 @@
 ## Overview
 This folder contains my thesis work, which explores custom CNNs and pre-trained CNNs in the domain of TB screening using small (704 chest x-rays) and moderately large (4200 chest-xrays) datasets. Grad-CAM is used to validate the results of the models.
 
-The full log of the project, including experiment runs, hyperparameter details, and results are in the google sheet below (comment access is given):
+The full log of the project, including experiment runs, hyperparameter details, and results are in the google sheet below with comment access. 
 
 [![Experiment Results](https://img.shields.io/badge/Experiment_Results-Google_Sheets-34A853?logo=google-sheets&logoColor=white)](https://docs.google.com/spreadsheets/d/1yfOcmW0lD8mNYdcBe97ekJ9IfUImScAMzi2XEnvoDVU/edit?gid=405324248#gid=405324248)
+
+The full thesis pdf is also provided in the link below.
+
+[![Google Drive](https://img.shields.io/badge/Google%20Drive-Thesis%20PDF-DF4B37?logo=googledrive&logoColor=white)](https://drive.google.com/file/d/1vFm7FgCC8NLXUbbpsZj0X4If5L_MyxfC/view?usp=drive_link)
 
 *Note: If a notebook fails to render on GitHub, please use the "Open in Colab" badges in the link column to view and run the code directly.*
 
