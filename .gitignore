@@ -1,1 +1,29 @@
+# Trained checkpoints live in Google Drive, never in git
+*.pt
+*.pth
+*.ckpt
+
+# Datasets and everything the notebooks build locally at runtime
+data_704/
+data_704_seg/
+data_4200/
+data_4200_seg/
+Images_704/
+Images_4200/
+ROI_Images_704/
+ROI_Images_4200/
+train/
+val/
+test/
+figures_d2_mask_quality/
+
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+
+# Notebook / editor scratch
+.ipynb_checkpoints/
 .claude
+.DS_Store
