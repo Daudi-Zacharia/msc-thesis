@@ -27,3 +27,6 @@ venv/
 .ipynb_checkpoints/
 .claude
 .DS_Store
+
+#Prompts
+prompts/
