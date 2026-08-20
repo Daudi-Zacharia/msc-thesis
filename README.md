@@ -1,10 +1,11 @@
 # Deep Learning and xAI applied to TB Screening
 
-MSc Data Science thesis code: custom and pretrained CNNs for tuberculosis screening
-from chest X-rays, across a small dataset (704 images, **D1**) and a moderately
-large one (4200 images, **D2**). Lung segmentation with a U-Net is used to test
-whether restricting the classifier to the lung field improves detection, and
-Grad-CAM and t-SNE are used to check what the models actually learned.
+MSc Data Science thesis code: custom and pretrained CNNs, plus a ViT-B/16
+baseline, for tuberculosis screening from chest X-rays, across a small dataset
+(704 images, **D1**) and a moderately large one (4200 images, **D2**). Lung
+segmentation with a U-Net is used to test whether restricting the classifier
+to the lung field improves detection, and Grad-CAM and t-SNE are used to check
+what the models actually learned.
 
 ## Documents and experiment log
 
@@ -45,9 +46,9 @@ dataloader they use.
 
 | Notebook | Covers | Link |
 | :--- | :--- | :--- |
-| **d1_experiments** | D1 (704), 5 models × {original, segmented} — Table III | [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/Daudi-Zacharia/msc-thesis/blob/main/classification/clean_notebooks/d1_experiments.ipynb) |
-| **d2_experiments** | D2 (4200), 5 models × {no aug, aug, oversampling, segmented} — Table IV | [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/Daudi-Zacharia/msc-thesis/blob/main/classification/clean_notebooks/d2_experiments.ipynb) |
-| **cross_dataset_evaluation** | D1→D2 and D2→D1 generalisation, with bootstrap F1 confidence intervals | [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/Daudi-Zacharia/msc-thesis/blob/main/classification/clean_notebooks/cross_dataset_evaluation.ipynb) |
+| **d1_experiments** | D1 (704), 5 CNNs × {original, segmented} — Table III, plus an exploratory ViT-B/16 baseline | [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/Daudi-Zacharia/msc-thesis/blob/main/classification/clean_notebooks/d1_experiments.ipynb) |
+| **d2_experiments** | D2 (4200), 5 CNNs × {no aug, aug, oversampling, segmented} — Table IV, plus a ViT-B/16 baseline and the manuscript t-SNE / Grad-CAM figures | [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/Daudi-Zacharia/msc-thesis/blob/main/classification/clean_notebooks/d2_experiments.ipynb) |
+| **cross_dataset_evaluation** | D1→D2 and D2→D1 generalisation for the five CNNs and ViT-B/16, with per-task confidence intervals | [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/Daudi-Zacharia/msc-thesis/blob/main/classification/clean_notebooks/cross_dataset_evaluation.ipynb) |
 | **data_leakage_analysis** | Cross-dataset duplicate detection via perceptual hashing | [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/Daudi-Zacharia/msc-thesis/blob/main/classification/clean_notebooks/data_leakage_analysis.ipynb) |
 | **segmentation_unet** | The VGG16-BN U-Net (`seg_unet_2.pth`) used by every segmented scheme | [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/Daudi-Zacharia/msc-thesis/blob/main/segmentation/clean_notebooks/segmentation_unet.ipynb) |
 | **quantitative_d2_segmentation** | No-reference mask quality on D2, where no ground-truth masks exist | [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/Daudi-Zacharia/msc-thesis/blob/main/segmentation/clean_notebooks/quantitative_d2_segmentation.ipynb) |
@@ -68,6 +69,62 @@ Run order, if starting from scratch: `segmentation_unet` produces the U-Net that
 | **Segmentation Custom CNN** | Custom CNN architecture for lung segmentation. | [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/Daudi-Zacharia/msc-thesis/blob/main/segmentation/raw_notebooks/Segmentation_Custom_CNN.ipynb) |
 | **Segmentation Inference** | Running inference and generating lung masks using trained models. | [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/Daudi-Zacharia/msc-thesis/blob/main/segmentation/raw_notebooks/Segmentation_Inference.ipynb) |
 | **Segmentation Unet Full** | Full implementation of U-Net for lung segmentation. | [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/Daudi-Zacharia/msc-thesis/blob/main/segmentation/raw_notebooks/Segmentation_Unet_Full.ipynb) |
+
+## ViT-B/16 baseline
+
+A Vision Transformer (`vit_b16`, ImageNet-1k pretrained) is included alongside
+the five CNNs as an exploratory baseline — a working, reasonably tuned setup to
+check whether ViT is viable at these dataset sizes, not a final polished
+result. It lives in its own section of each notebook, with its own checkpoint
+dictionary and results table, so it does not touch the five-CNN tables
+reported in Table III / Table IV.
+
+Two fine-tuning strategies are compared per scheme: a **frozen backbone**
+(only the new classification head trains) against **full fine-tuning**
+(everything trains). Full fine-tuning wins on every scheme it was compared
+against, on both datasets, so it is the only strategy used for schemes added
+after that comparison:
+
+- **`d2_experiments`** — all four D2 schemes, six runs total. No Aug. and With
+  Aug. compare frozen vs. full fine-tune; Oversampling and Segmented are
+  trained full-fine-tune only, once the comparison was settled.
+- **`d1_experiments`** — both D1 schemes, four runs total, comparing frozen vs.
+  full fine-tune on each. Re-run here rather than assumed from the D2 result:
+  D1 has far less training data (492 images vs. D2's 3360), which is exactly
+  the regime where a frozen backbone can plausibly win. It still doesn't, but
+  far less decisively than on D2. D1 has no Oversampling scheme for any model,
+  ViT included, since its two classes are already balanced.
+- **`cross_dataset_evaluation`** — extends every task to ViT: in-domain
+  evaluation on each dataset's own test split, D1→D2 across both D1 schemes,
+  and D2→D1 using D2's best-scoring scheme (With Aug.). Confidence intervals
+  follow whichever method fits the task — bootstrap F1 (with an automatic
+  Wilson-accuracy fallback for a flawless run) for in-domain D2 and the D1→D2
+  direction, a direct Wilson accuracy CI for D2→D1, and no CI at all for D1
+  in-domain (72 test images) — left to be computed externally from the
+  reported confusion-matrix counts.
+
+Checkpoints follow `vit_b16_d{1,2}_{scheme}_{frozen|full_ft}.pt`.
+
+## Manuscript figures
+
+`d2_experiments.ipynb` ends with a **self-contained** section that builds two
+combined, publication-ready figures for the D2 results and saves them to
+`./images/` at 300 dpi:
+
+- **t-SNE** — a 2×3 grid, one panel per model (the five CNNs on their
+  Oversampling checkpoint, ViT-B/16 on its best-scoring `aug_full_ft`
+  checkpoint), titled with just the model name.
+- **Grad-CAM** — a 2×7 grid over the same six models and a single fixed
+  Normal/TB image pair. Each overlay explains **whatever class that model
+  actually predicted** for the image, not a fixed target class, so it is a
+  genuine explanation of each model's own decision rather than a probe applied
+  uniformly.
+
+The section duplicates every dependency it needs — installs, Drive mount,
+model definitions, the full checkpoint registry, the D2 test split — so it
+runs top to bottom on a fresh Colab runtime without any other section of the
+notebook having been run first. Which checkpoints it uses is a one-line change
+(`CNN_SCHEME` / `VIT_RUN` near the top of the section).
 
 ## Data
 
