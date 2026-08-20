@@ -105,26 +105,6 @@ after that comparison:
 
 Checkpoints follow `vit_b16_d{1,2}_{scheme}_{frozen|full_ft}.pt`.
 
-## Manuscript figures
-
-`d2_experiments.ipynb` ends with a **self-contained** section that builds two
-combined, publication-ready figures for the D2 results and saves them to
-`./images/` at 300 dpi:
-
-- **t-SNE** — a 2×3 grid, one panel per model (the five CNNs on their
-  Oversampling checkpoint, ViT-B/16 on its best-scoring `aug_full_ft`
-  checkpoint), titled with just the model name.
-- **Grad-CAM** — a 2×7 grid over the same six models and a single fixed
-  Normal/TB image pair. Each overlay explains **whatever class that model
-  actually predicted** for the image, not a fixed target class, so it is a
-  genuine explanation of each model's own decision rather than a probe applied
-  uniformly.
-
-The section duplicates every dependency it needs — installs, Drive mount,
-model definitions, the full checkpoint registry, the D2 test split — so it
-runs top to bottom on a fresh Colab runtime without any other section of the
-notebook having been run first. Which checkpoints it uses is a one-line change
-(`CNN_SCHEME` / `VIT_RUN` near the top of the section).
 
 ## Data
 
