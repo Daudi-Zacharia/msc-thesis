@@ -7,12 +7,10 @@ segmentation with a U-Net is used to test whether restricting the classifier
 to the lung field improves detection, and Grad-CAM and t-SNE are used to check
 what the models actually learned.
 
-## Documents and experiment log
+## Documents
 
-The full log of the project — every experiment run, hyperparameter and result —
-is in the Google Sheet below (comment access). The thesis PDF is also linked.
+The thesis PDF is linked below
 
-[![Experiment Results](https://img.shields.io/badge/Experiment_Results-Google_Sheets-34A853?logo=google-sheets&logoColor=white)](https://docs.google.com/spreadsheets/d/1yfOcmW0lD8mNYdcBe97ekJ9IfUImScAMzi2XEnvoDVU/edit?gid=405324248#gid=405324248)
 
 [![Google Drive](https://img.shields.io/badge/Google%20Drive-Thesis%20PDF-DF4B37?logo=googledrive&logoColor=white)](https://drive.google.com/file/d/1vFm7FgCC8NLXUbbpsZj0X4If5L_MyxfC/view?usp=drive_link)
 
