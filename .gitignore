@@ -30,3 +30,5 @@ venv/
 
 #Prompts
 prompts/
+
+model_names_delete.txt
