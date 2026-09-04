@@ -4,7 +4,7 @@ MSc Data Science thesis code: custom and pretrained CNNs, plus a ViT-B/16
 baseline, for tuberculosis screening from chest X-rays, across a small dataset
 (704 images, **D1**) and a moderately large one (4200 images, **D2**). Lung
 segmentation with a U-Net is used to test whether restricting the classifier
-to the lung field improves detection, and Grad-CAM and t-SNE are used to check
+to the lung field improves detection, and Grad-CAM is used to check
 what the models actually learned.
 
 ## Documents
@@ -12,7 +12,7 @@ what the models actually learned.
 The thesis PDF is linked below
 
 
-[![Google Drive](https://img.shields.io/badge/Google%20Drive-Thesis%20PDF-DF4B37?logo=googledrive&logoColor=white)](https://drive.google.com/file/d/1vFm7FgCC8NLXUbbpsZj0X4If5L_MyxfC/view?usp=drive_link)
+[![GitHub](https://img.shields.io/badge/GitHub-Thesis%20PDF-181717?logo=github&logoColor=white)](https://github.com/Daudi-Zacharia/msc-thesis-manuscript/blob/main/main.pdf)
 
 ## Layout
 
@@ -144,7 +144,7 @@ A **GPU runtime is required**. The training cells are kept for reproducibility
 but are not meant to be re-run on every pass — each Evaluation cell loads the
 saved checkpoint instead, which is the fast path.
 
-## Notes carried over from the raw notebooks
+<!-- ## Notes carried over from the raw notebooks
 
 A few quirks are reproduced deliberately, because changing them would no longer
 match the checkpoints that produced the published numbers:
@@ -157,4 +157,4 @@ match the checkpoints that produced the published numbers:
   same images.
 - **The D2 Custom CNN checkpoints were trained without normalization**, unlike
   their D1 counterparts, and the three unsegmented ones are stored as state
-  dicts rather than full model objects.
+  dicts rather than full model objects. -->
