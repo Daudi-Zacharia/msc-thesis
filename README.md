@@ -9,10 +9,16 @@ what the models actually learned.
 
 ## Documents
 
-The thesis PDF is linked below
-
+The thesis PDF is linked below.
 
 [![GitHub](https://img.shields.io/badge/GitHub-Thesis%20PDF-181717?logo=github&logoColor=white)](https://github.com/Daudi-Zacharia/msc-thesis-manuscript/blob/main/main.pdf)
+
+## Prototype
+
+A Streamlit app prototype that segments the lung fields of a chest X-ray, classifies it as Normal or Tuberculosis, and explains the prediction with a Grad-CAM heatmap. The live version and the github repo are linked below.
+
+[![Streamlit](https://img.shields.io/badge/Streamlit-Live%20Demo-FF4B4B?logo=streamlit&logoColor=white)](https://msc-thesis-tb.streamlit.app/)
+[![GitHub](https://img.shields.io/badge/GitHub-App%20Repo-181717?logo=github&logoColor=white)](https://github.com/Daudi-Zacharia/msc-thesis-tb-app)
 
 ## Layout
 
