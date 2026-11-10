@@ -9,13 +9,14 @@ what the models actually learned.
 
 ## Documents
 
-The thesis PDF is linked below.
+The thesis PDF and related IEEE Xplore article are linked below.
 
 [![GitHub](https://img.shields.io/badge/GitHub-Thesis%20PDF-181717?logo=github&logoColor=white)](https://github.com/Daudi-Zacharia/msc-thesis-manuscript/blob/main/main.pdf)
+[![IEEE](https://img.shields.io/badge/IEEE-Xplore%20Article-00629B?logo=ieee&logoColor=white)](https://doi.org/10.1109/SISY71351.2026.11738572)
 
 ## Prototype
 
-A Streamlit app prototype that segments the lung fields of a chest X-ray, classifies it as Normal or Tuberculosis, and explains the prediction with a Grad-CAM heatmap. The live version and the github repo are linked below.
+A Streamlit app prototype that segments the lung fields of a chest X-ray, classifies it as Normal or Tuberculosis, and explains the prediction with a Grad-CAM heatmap. The live version and the git[...]
 
 [![Streamlit](https://img.shields.io/badge/Streamlit-Live%20Demo-FF4B4B?logo=streamlit&logoColor=white)](https://msc-thesis-tb.streamlit.app/)
 [![GitHub](https://img.shields.io/badge/GitHub-App%20Repo-181717?logo=github&logoColor=white)](https://github.com/Daudi-Zacharia/msc-thesis-tb-app)
@@ -50,12 +51,12 @@ dataloader they use.
 
 | Notebook | Covers | Link |
 | :--- | :--- | :--- |
-| **d1_experiments** | D1 (704), 5 CNNs × {original, segmented} — Table III, plus an exploratory ViT-B/16 baseline | [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/Daudi-Zacharia/msc-thesis/blob/main/classification/clean_notebooks/d1_experiments.ipynb) |
-| **d2_experiments** | D2 (4200), 5 CNNs × {no aug, aug, oversampling, segmented} — Table IV, plus a ViT-B/16 baseline and the manuscript t-SNE / Grad-CAM figures | [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/Daudi-Zacharia/msc-thesis/blob/main/classification/clean_notebooks/d2_experiments.ipynb) |
-| **cross_dataset_evaluation** | D1→D2 and D2→D1 generalisation for the five CNNs and ViT-B/16, with per-task confidence intervals | [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/Daudi-Zacharia/msc-thesis/blob/main/classification/clean_notebooks/cross_dataset_evaluation.ipynb) |
-| **data_leakage_analysis** | Cross-dataset duplicate detection via perceptual hashing | [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/Daudi-Zacharia/msc-thesis/blob/main/classification/clean_notebooks/data_leakage_analysis.ipynb) |
-| **segmentation_unet** | The VGG16-BN U-Net (`seg_unet_2.pth`) used by every segmented scheme | [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/Daudi-Zacharia/msc-thesis/blob/main/segmentation/clean_notebooks/segmentation_unet.ipynb) |
-| **quantitative_d2_segmentation** | No-reference mask quality on D2, where no ground-truth masks exist | [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/Daudi-Zacharia/msc-thesis/blob/main/segmentation/clean_notebooks/quantitative_d2_segmentation.ipynb) |
+| **d1_experiments** | D1 (704), 5 CNNs × {original, segmented} — Table III, plus an exploratory ViT-B/16 baseline | [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)][...]
+| **d2_experiments** | D2 (4200), 5 CNNs × {no aug, aug, oversampling, segmented} — Table IV, plus a ViT-B/16 baseline and the manuscript t-SNE / Grad-CAM figures | [![Open In Colab](https://colab.research.google.com/assets/[...]
+| **cross_dataset_evaluation** | D1→D2 and D2→D1 generalisation for the five CNNs and ViT-B/16, with per-task confidence intervals | [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.[...]
+| **data_leakage_analysis** | Cross-dataset duplicate detection via perceptual hashing | [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.[...]
+| **segmentation_unet** | The VGG16-BN U-Net (`seg_unet_2.pth`) used by every segmented scheme | [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research[...]
+| **quantitative_d2_segmentation** | No-reference mask quality on D2, where no ground-truth masks exist | [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab[...]
 
 Run order, if starting from scratch: `segmentation_unet` produces the U-Net that
 `d1_experiments` and `d2_experiments` both depend on for their segmented schemes.
@@ -64,15 +65,15 @@ Run order, if starting from scratch: `segmentation_unet` produces the U-Net that
 
 | Notebook Name | Description | Link |
 | :--- | :--- | :--- |
-| **Classification Custom CNNs** | Training custom CNN models for classification. | [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/Daudi-Zacharia/msc-thesis/blob/main/classification/raw_notebooks/Classification_Custom_CNNs.ipynb) |
-| **Classification Segmented Lungs** | Training custom CNN models on segmented lung images. | [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/Daudi-Zacharia/msc-thesis/blob/main/classification/raw_notebooks/Classification_Segmented_Lungs_Custom_CNN.ipynb) |
-| **DenseNet169** | Transfer learning experiments using DenseNet169. | [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/Daudi-Zacharia/msc-thesis/blob/main/classification/raw_notebooks/DenseNet169.ipynb) |
-| **EfficientNet B3** | Transfer learning experiments using EfficientNet B3. | [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/Daudi-Zacharia/msc-thesis/blob/main/classification/raw_notebooks/EfficientNet_B3.ipynb) |
-| **ResNet50** | Transfer learning experiments using ResNet50. | [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/Daudi-Zacharia/msc-thesis/blob/main/classification/raw_notebooks/ResNet50.ipynb) |
-| **VGG 16** | Transfer learning experiments using VGG 16. | [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/Daudi-Zacharia/msc-thesis/blob/main/classification/raw_notebooks/VGG_16.ipynb) |
-| **Segmentation Custom CNN** | Custom CNN architecture for lung segmentation. | [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/Daudi-Zacharia/msc-thesis/blob/main/segmentation/raw_notebooks/Segmentation_Custom_CNN.ipynb) |
-| **Segmentation Inference** | Running inference and generating lung masks using trained models. | [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/Daudi-Zacharia/msc-thesis/blob/main/segmentation/raw_notebooks/Segmentation_Inference.ipynb) |
-| **Segmentation Unet Full** | Full implementation of U-Net for lung segmentation. | [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/Daudi-Zacharia/msc-thesis/blob/main/segmentation/raw_notebooks/Segmentation_Unet_Full.ipynb) |
+| **Classification Custom CNNs** | Training custom CNN models for classification. | [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/g[...]
+| **Classification Segmented Lungs** | Training custom CNN models on segmented lung images. | [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.go[...]
+| **DenseNet169** | Transfer learning experiments using DenseNet169. | [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/Daudi-Z[...]
+| **EfficientNet B3** | Transfer learning experiments using EfficientNet B3. | [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github[...]
+| **ResNet50** | Transfer learning experiments using ResNet50. | [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/Daudi-Zacharia/ms[...]
+| **VGG 16** | Transfer learning experiments using VGG 16. | [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/Daudi-Zacharia/ms[...]
+| **Segmentation Custom CNN** | Custom CNN architecture for lung segmentation. | [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/gith[...]
+| **Segmentation Inference** | Running inference and generating lung masks using trained models. | [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.resear[...]
+| **Segmentation Unet Full** | Full implementation of U-Net for lung segmentation. | [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/[...]
 
 ## ViT-B/16 baseline
 
