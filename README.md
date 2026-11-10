@@ -11,8 +11,7 @@ what the models actually learned.
 
 The thesis PDF and related IEEE Xplore article are linked below.
 
-[![GitHub](https://img.shields.io/badge/GitHub-Thesis%20PDF-181717?logo=github&logoColor=white)](https://github.com/Daudi-Zacharia/msc-thesis-manuscript/blob/main/main.pdf)
-[![IEEE](https://img.shields.io/badge/IEEE-Xplore%20Article-00629B?logo=ieee&logoColor=white)](https://doi.org/10.1109/SISY71351.2026.11738572)
+[![GitHub](https://img.shields.io/badge/GitHub-Thesis%20PDF-181717?logo=github&logoColor=white)](https://github.com/Daudi-Zacharia/msc-thesis-manuscript/blob/main/main.pdf) [![IEEE](https://img.shields.io/badge/IEEE-Xplore%20Article-00629B?logo=ieee&logoColor=white)](https://doi.org/10.1109/SISY71351.2026.11738572)
 
 ## Prototype
 
@@ -52,8 +51,8 @@ dataloader they use.
 | Notebook | Covers | Link |
 | :--- | :--- | :--- |
 | **d1_experiments** | D1 (704), 5 CNNs × {original, segmented} — Table III, plus an exploratory ViT-B/16 baseline | [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)][...]
-| **d2_experiments** | D2 (4200), 5 CNNs × {no aug, aug, oversampling, segmented} — Table IV, plus a ViT-B/16 baseline and the manuscript t-SNE / Grad-CAM figures | [![Open In Colab](https://colab.research.google.com/assets/[...]
-| **cross_dataset_evaluation** | D1→D2 and D2→D1 generalisation for the five CNNs and ViT-B/16, with per-task confidence intervals | [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.[...]
+| **d2_experiments** | D2 (4200), 5 CNNs × {no aug, aug, oversampling, segmented} — Table IV, plus a ViT-B/16 baseline and the manuscript t-SNE / Grad-CAM figures | [![Open In Colab](https://co[...]
+| **cross_dataset_evaluation** | D1→D2 and D2→D1 generalisation for the five CNNs and ViT-B/16, with per-task confidence intervals | [![Open In Colab](https://colab.research.google.com/assets/[...]
 | **data_leakage_analysis** | Cross-dataset duplicate detection via perceptual hashing | [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.[...]
 | **segmentation_unet** | The VGG16-BN U-Net (`seg_unet_2.pth`) used by every segmented scheme | [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research[...]
 | **quantitative_d2_segmentation** | No-reference mask quality on D2, where no ground-truth masks exist | [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab[...]
